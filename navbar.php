@@ -9,6 +9,12 @@
             <li class="nav-item">
                 <a class="nav-link" href="#tosdrTopics">Tópicos</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="form.php">Adicionar Novo Tópico</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="topicTable.php">Tópicos Adicionados</a>
+            </li>
         </ul>
     </div>
 </nav>
