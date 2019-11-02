@@ -2,6 +2,7 @@
 	<title>Formulário</title>
 </head>
 <body>
+<?php require_once("navbar.php"); ?> 
     <form method="POST">
         <div class="form-group">
             <label for="siteName">Site</label>
