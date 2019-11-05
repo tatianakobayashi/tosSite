@@ -12,7 +12,9 @@
 
 	$issue = NULL;
 	if($action == 'edit'){
-		$issue = new Issue($_POST["siteName"], $_POST["termUrl"], $_POST["topic"], $_POST["quote"]);
+		$issueId = $_POST["siteName"];
+		// Pegar do BD
+		// $issue = new Issue($_POST["siteName"], $_POST["termUrl"], $_POST["topic"], $_POST["quote"]);
 	}
 
 	require_once("navbar.php"); ?> 
