@@ -2,7 +2,8 @@
 	<title>Lista de Tópicos</title>
 </head>
 <body>
-<?php require_once("navbar.php"); ?> 
+<?php require_once("navbar.php"); 
+require_once("issue-database.php"); ?> 
 
     <table class="table">
         <thead>
@@ -14,7 +15,26 @@
             <th>Editar</th>
         </thead>
         <tbody>
+            <?php 
+                $issues = getAllIssues($connection);
+                foreach($issues as $issue) :
+            ?>
 
+            <td><?= $issue->getSiteName() ?></td>
+            <td><?= $issue->getTosUrl() ?></td>
+            <td><?= $issue->getTopic() ?></td>
+            <td><?= $issue->getQuote() ?></td>
+            <td><?= $issue->getEdits() ?></td>
+            <td>
+                <form action="edit-issue.php" method="post">
+                    <input type="hidden" name="id" value="<?=$issue->getId()?>" />
+                    <button class="btn btn-danger">Editar</button>
+                </form>
+            </td>
+
+            <?php
+                endforeach
+            ?>
         </tbody>
     </table>
 </body>
