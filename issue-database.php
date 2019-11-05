@@ -1,6 +1,6 @@
 <?php
 
-require_once("connection.php");
+require_once("connect.php");
 
 function insertIssue($connection, $issue) {
     $query = "insert into issues (site, url, topic, quote, edits) values ('{$issue->site}', {$issue->url}, {$issue->topic}, {$issue->quote}, 0)";
