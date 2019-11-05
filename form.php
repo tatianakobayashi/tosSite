@@ -16,7 +16,7 @@
 	}
 
 	require_once("navbar.php"); ?> 
-    <form method="POST">
+    <form method="POST" action="newTopic.php">
         <div class="form-group">
             <label for="siteName">Site</label>
             <input type="text" name="siteName" class="form-control" value="<?php echo (isset($issue))?$issue->getSiteName():'';?>" />
