@@ -1,2 +1,2 @@
 <?php
-$conexao = mysqli_connect('localhost', 'root', '', 'tosSite');
+$connection = mysqli_connect('localhost', 'root', '', 'tosSite');
