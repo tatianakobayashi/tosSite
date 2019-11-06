@@ -15,7 +15,7 @@
         $issue = getIssueById($connection, $issueId);
 	}
 	require_once("navbar.php"); ?> 
-    <form method="POST" action="newTopic.php">
+    <form method="POST" action="<?php if($action == 'edit'){ echo 'editTopic.php';} else{echo 'newTopic.php'} ?>">
         <div class="form-group">
             <label for="siteName">Site</label>
             <input type="text" name="siteName" class="form-control" value="<?php echo (isset($issue))?$issue->getSiteName():'';?>" />
@@ -36,7 +36,7 @@
             <label for="quote">Trecho do termo em questão</label>
             <textarea type="text" name="quote" class="form-control" value="<?php echo (isset($issue))?$issue->getQuote():'';?>"></textarea>
         </div>
-        <input type="hidden" name="action" value="<?php echo $action; ?>">
+        <!-- <input type="hidden" name="action" value="<?php echo $action; ?>"> -->
         <input type="hidden" name="id" value="<?php echo (isset($issue))?$issueId:''; ?>">
         <input type="hidden" name="edits" value="<?php echo (isset($issue))?$issue->getEdits():0; ?>">
         <button type="submit" class="btn btn-primary">Enviar</button>
