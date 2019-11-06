@@ -11,7 +11,9 @@ function getAllIssues($connection) {
     $issues = array();
     $result = mysqli_query($connection, "select * from issues");
 
-    while($issue = mysqli_fetch_assoc($result)) {
+    while($arr = mysqli_fetch_assoc($result)) {
+        $issue = new Issue($arr["siteName"], $arr["termUrl"], $arr["topic"], $arr["quote"], $arr["edits"]);
+        $issue->setId($arr["id"]);
         array_push($issues, $issue);
     }
 
