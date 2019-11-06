@@ -3,7 +3,7 @@
 </head>
 <body>
 	<?php
-	include("connect.php");
+	require_once("issue-database.php");
 	$action = 'new';
 	if( isset($_POST['action']) )
 	{
@@ -12,7 +12,8 @@
 
 	$issue = NULL;
 	if($action == 'edit'){
-		$issueId = $_POST["siteName"];
+        $issueId = $_POST["siteName"];
+        $issue = getIssueById($connection, $issueId);
 		// Pegar do BD
 		// $issue = new Issue($_POST["siteName"], $_POST["termUrl"], $_POST["topic"], $_POST["quote"]);
 	}

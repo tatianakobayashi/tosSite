@@ -35,11 +35,17 @@ function removeIssue($connection, $id) {
 function getIssueById($connection, $id) {
     $query = "select * from issues where id = {$id}";
     $result = mysqli_query($connection, $query);
-    return mysqli_fetch_assoc($result);
+    $arr = mysqli_fetch_assoc($result);
+    $issue = new Issue($arr["siteName"], $arr["termUrl"], $arr["topic"], $arr["quote"], $arr["edits"]);
+    $issue->setId($arr["id"]);
+    return $issue;
 }
 
 function getIssueBySite($connection, $site) {
     $query = "select * from issues where site = {$site}";
     $result = mysqli_query($connection, $query);
-    return mysqli_fetch_assoc($result);
+    $arr = mysqli_fetch_assoc($result);
+    $issue = new Issue($arr["siteName"], $arr["termUrl"], $arr["topic"], $arr["quote"], $arr["edits"]);
+    $issue->setId($arr["id"]);
+    return $issue;
 }
