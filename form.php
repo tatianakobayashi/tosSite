@@ -9,15 +9,11 @@
 	{
      $action = $_POST['action'];
 	}
-
 	$issue = NULL;
 	if($action == 'edit'){
         $issueId = $_POST["siteName"];
         $issue = getIssueById($connection, $issueId);
-		// Pegar do BD
-		// $issue = new Issue($_POST["siteName"], $_POST["termUrl"], $_POST["topic"], $_POST["quote"]);
 	}
-
 	require_once("navbar.php"); ?> 
     <form method="POST" action="newTopic.php">
         <div class="form-group">
@@ -41,6 +37,8 @@
             <textarea type="text" name="quote" class="form-control" value="<?php echo (isset($issue))?$issue->getQuote():'';?>"></textarea>
         </div>
         <input type="hidden" name="action" value="<?php echo $action; ?>">
+        <input type="hidden" name="id" value="<?php echo (isset($issue))?$issueId:''; ?>">
+        <input type="hidden" name="edits" value="<?php echo (isset($issue))?$issue->getEdits():0; ?>">
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </body>
