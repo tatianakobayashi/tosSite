@@ -3,7 +3,7 @@
 require_once("connect.php");
 
 function insertIssue($connection, $issue) {
-    $query = "insert into issues (site, url, topic, quote, edits) values ('{$issue->getSiteName()}', {$issue->getTosUrl()}, {$issue->getTopic()}, {$issue->getQuote()}, 0)";
+    $query = "insert into issues (site, url, topic, quote, edits) values ('{$issue->getSiteName()}', '{$issue->getTosUrl()}', '{$issue->getTopic()}', '{$issue->getQuote()}', 0)";
     return mysqli_query($connection, $query);
 }
 
