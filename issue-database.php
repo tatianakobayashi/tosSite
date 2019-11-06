@@ -12,7 +12,7 @@ function getAllIssues($connection) {
     $result = mysqli_query($connection, "select * from issues");
 
     while($arr = mysqli_fetch_assoc($result)) {
-        $issue = new Issue($arr["siteName"], $arr["termUrl"], $arr["topic"], $arr["quote"], $arr["edits"]);
+        $issue = new Issue($arr["site"], $arr["url"], $arr["topic"], $arr["quote"], $arr["edits"]);
         $issue->setId($arr["id"]);
         array_push($issues, $issue);
     }
