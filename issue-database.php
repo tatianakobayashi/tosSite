@@ -1,5 +1,5 @@
 <?php
-
+require_once("Models/Issue.php");
 require_once("connect.php");
 
 function insertIssue($connection, $issue) {
