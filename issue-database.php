@@ -35,7 +35,7 @@ function getIssueById($connection, $id) {
     $query = "select * from issues where id = {$id}";
     $result = mysqli_query($connection, $query);
     $arr = mysqli_fetch_assoc($result);
-    $issue = new Issue($arr["siteName"], $arr["termUrl"], $arr["topic"], $arr["quote"], $arr["edits"]);
+    $issue = new Issue($arr["site"], $arr["url"], $arr["topic"], $arr["quote"], $arr["edits"]);
     $issue->setId($arr["id"]);
     return $issue;
 }
