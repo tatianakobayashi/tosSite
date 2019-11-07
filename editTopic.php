@@ -5,6 +5,7 @@
 <?php 
 require_once("navbar.php"); 
 require_once("Models/Issue.php");
+require_once("connect.php");
 require_once("issue-database.php"); 
 
 $success = alterIssue($connection, $_POST["id"], $_POST["siteName"], $_POST["termUrl"], $_POST["topic"], $_POST["quote"], $_POST["edits"]);

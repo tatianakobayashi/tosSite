@@ -3,6 +3,7 @@
 </head>
 <body>
 <?php require_once("navbar.php"); 
+require_once("connect.php");
 require_once("issue-database.php"); ?> 
 
     <table class="table">
