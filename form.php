@@ -35,7 +35,7 @@
 
         <div class="form-group">
             <label for="quote">Trecho do termo</label>
-            <textarea type="text" name="quote" class="form-control" value="<?php echo (isset($issue))?$issue->getQuote():'';?>"></textarea>
+            <textarea type="text" name="quote" class="form-control"><?php echo (isset($issue))?$issue->getQuote():'';?></textarea>
         </div>
         <!-- <input type="hidden" name="action" value="<?php echo $action; ?>"> -->
         <input type="hidden" name="id" value="<?php echo (isset($issue))?$issueId:''; ?>">
