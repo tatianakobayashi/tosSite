@@ -15,7 +15,7 @@
         $issue = getIssueById($connection, $issueId);
 	}
 	require_once("navbar.php"); ?> 
-    <form method="POST" action="<?php if($action == 'edit'){ echo 'editTopic.php';} else{echo 'newTopic.php'} ?>">
+    <form method="POST" action="<?php if($action == 'edit'){ echo 'editTopic.php';} else{echo 'newTopic.php';} ?>">
         <div class="form-group">
             <label for="siteName">Site</label>
             <input type="text" name="siteName" class="form-control" value="<?php echo (isset($issue))?$issue->getSiteName():'';?>" />
