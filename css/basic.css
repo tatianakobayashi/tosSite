@@ -6,3 +6,27 @@ body{
 .header{
     padding-top: 10px;
 }
+
+.red{
+  color: red;
+}
+
+.green{
+  color: green;
+}
+
+.yellow{
+  color: yellow;
+}
+
+.orange{
+  color: orange;
+}
+
+.burgundy{
+  color: brown;
+}
+
+.gray{
+  color: gray;
+}
