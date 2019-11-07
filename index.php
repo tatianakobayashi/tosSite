@@ -59,10 +59,10 @@
           );
 
           $point_alert = array(
-            "bad"=> "text-white bg-danger",
-            "good"=> "text-white bg-success",
-            "neutral"=> "text-white bg-info",
-            "undefined"=> "bg-light"
+            "bad"=> "border-danger text-danger",
+            "good"=> "border-success text-success",
+            "neutral"=> "border-secondary text-secondary",
+            "undefined"=> "border-dark text-dark"
           );
 
           $rating_color_class = array(
@@ -89,20 +89,15 @@
                     <!-- Nome do serviço e Classificação -->
                     <h5 class="card-title"> <?= $value->name?> </h5>
                     <p class="card-text <?=$rating_color_class[$value->rated]?>"> <?= $rating_to_string[$value->rated]?> </p>
-                    
-                    <?php 
-                    // foreach ($value->points as $point_key => $point_value) {
-                    //   echo $point_value->title;
-                    // }
-                    ?>
 
                     <h5 class="card-title"><a data-toggle="collapse" data-target="#point<?=$no_space_service_name?>ListAccordion" aria-expanded="false" aria-controls="point<?=$no_space_service_name?>ListAccordion" role="button">Tópicos</a></h5>
                     <div class="accordion collapse" id="point<?=$no_space_service_name?>ListAccordion">
                     <?php 
                     foreach ($value->points as $point_key => $point_value) {
+                      $score = $point_value->point;
                     ?>
                       
-                      <div class="card">
+                      <div class="card <?=$point_alert[$score]?>">
                         <div class="card-header" id="heading<?=$point_value->id?>">
                           <h2 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse<?=$point_value->id?>" aria-expanded="true" aria-controls="collapse<?=$point_value->id?>">
@@ -114,6 +109,7 @@
                         <div id="collapse<?=$point_value->id?>" class="collapse" aria-labelledby="heading<?=$point_value->id?>" data-parent="#point<?=$no_space_service_name?>ListAccordion">
                           <div class="card-body">
                             <?= $point_value->description?> <br />
+                            <strong><?= $point_translation[$score]?></strong><br />
                             <strong>Importância: </strong> <?= $point_value->score ?><br />
                             <a href="<?= $point_value->discussion?>">Discussão</a><br />
                           </div>
@@ -153,24 +149,6 @@
       </div>
     </div>
   </div>
-
-  <div>
-  <a href="form.php">Formulário</a>
-  <a href="topicTable.php">Tabela</a>
-
-  </div>
-
-  <p>
-    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#test" aria-expanded="false" aria-controls="test">
-      Button with data-target
-    </button>
-  </p>
-  <div class="collapse" id="test">
-    <div class="card card-body">
-      Hi
-    </div>
-  </div>
-  <p></p>
 
 </body>
 </html>
