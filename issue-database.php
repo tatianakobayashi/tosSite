@@ -1,6 +1,5 @@
 <?php
 require_once("Models/Issue.php");
-require_once("connect.php");
 
 function insertIssue($connection, $issue) {
     $query = "insert into issues (site, url, topic, quote, edits) values ('{$issue->getSiteName()}', '{$issue->getTosUrl()}', '{$issue->getTopic()}', '{$issue->getQuote()}', 0)";
