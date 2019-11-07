@@ -26,7 +26,7 @@ require_once("issue-database.php"); ?>
             <td><?= $issue->getQuote() ?></td>
             <td><?= $issue->getEdits() ?></td>
             <td>
-                <form action="edit-issue.php" method="post">
+                <form action="form.php" method="post">
                     <input type="hidden" name="id" value="<?=$issue->getId()?>" />
                     <input type="hidden" name="action" value="edit" />
                     <button class="btn btn-danger">Editar</button>
