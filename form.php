@@ -12,7 +12,7 @@
 	}
 	$issue = NULL;
 	if($action == 'edit'){
-        $issueId = $_POST["siteName"];
+        $issueId = $_POST["id"];
         $issue = getIssueById($connection, $issueId);
 	}
 	require_once("navbar.php"); ?> 
