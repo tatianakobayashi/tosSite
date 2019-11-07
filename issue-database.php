@@ -21,8 +21,8 @@ function getAllIssues($connection) {
 
 function alterIssue($connection, $id, $site, $url, $topic, $quote, $edits) {
 	$edits += 1;
-    $query = "update issues set site = '{$site}', url = {$url}, topic = '{$topic}',
-        quote= {$quote}, edits = {$edits} where id = '{$id}'";
+    $query = "update issues set site = '{$site}', url = '{$url}', topic = '{$topic}',
+        quote= '{$quote}', edits = {$edits} where id = {$id}";
     return mysqli_query($connection, $query);
 }
 
