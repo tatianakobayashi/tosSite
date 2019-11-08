@@ -16,6 +16,15 @@ function getAllTopics($connection) {
     return $topics;
 }
 
+function getAllTopicsAsArray($connection) {
+    $topics = array();
+    $result = mysqli_query($connection, "select * from topics");
+    while($arr = mysqli_fetch_assoc($result)) {
+        $topics[$arr["english"]] = $arr["translation"];
+    }
+    return $topics;
+}
+
 function alterTopic($connection, $topic) {
     $query = "update topics set site = '{$topic->getEnglish()}', url = '{$topic->getTranslation()}' where id = {$topic->getId() }";
     return mysqli_query($connection, $query);
