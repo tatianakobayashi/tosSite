@@ -19,10 +19,10 @@ function getAllIssues($connection) {
     return $issues;
 }
 
-function alterIssue($connection, $id, $site, $url, $topic, $quote, $edits) {
-	$edits += 1;
-    $query = "update issues set site = '{$site}', url = '{$url}', topic = '{$topic}',
-        quote= '{$quote}', edits = {$edits} where id = {$id}";
+function alterIssue($connection, $issue) {
+	$edits = $issue->getEdits() + 1;
+    $query = "update issues set site = '{$issue->getSiteName() }', url = '{$issue->getTosUrl() }', topic = '{$issue->getTopic() }',
+        quote= '{$issue->getQuote() }', edits = {$edits} where id = {$issue->getId() }";
     return mysqli_query($connection, $query);
 }
 
