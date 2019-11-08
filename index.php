@@ -13,10 +13,6 @@
     consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </div>
-  <!-- Busca de site/tópico -->
-
-  <div class="search">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
     quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -74,6 +70,10 @@
             "D"=> "red",
             "E"=> "burgundy"
           );
+        
+          // include_once('topic-database.php');
+          // include_once('connect.php');
+          // $translation = getAllTopicsAsArray();
 
           
           foreach ($obj as $key=> $value){
@@ -101,6 +101,7 @@
                         <div class="card-header" id="heading<?=$point_value->id?>">
                           <h2 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse<?=$point_value->id?>" aria-expanded="true" aria-controls="collapse<?=$point_value->id?>">
+                              <!-- <?= //isset($translation[$point_value->title])?$translation[$point_value->title]:$point_value->title?> -->
                               <?= $point_value->title?>
                             </button>
                           </h2>
@@ -108,6 +109,7 @@
 
                         <div id="collapse<?=$point_value->id?>" class="collapse" aria-labelledby="heading<?=$point_value->id?>" data-parent="#point<?=$no_space_service_name?>ListAccordion">
                           <div class="card-body">
+                            <!-- <?= //isset($translation[$point_value->description])?$translation[$point_value->description]:$point_value->description?> <br /> -->
                             <?= $point_value->description?> <br />
                             <strong><?= $point_translation[$score]?></strong><br />
                             <strong>Importância: </strong> <?= $point_value->score ?><br />
