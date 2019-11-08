@@ -9,7 +9,7 @@ require_once("connect.php");
 require_once("issue-database.php"); 
 
 $issue = new Issue($_POST["siteName"], $_POST["termUrl"], $_POST["topic"], $_POST["quote"], $_POST["edits"]);
-$success = alterIssue($connection, $_POST["id"], $_POST["siteName"], $_POST["termUrl"], $_POST["topic"], $_POST["quote"], $_POST["edits"]);
+$success = alterIssue($issue);
 if($success) {
 ?>
 <p class="alert alert-success">Tópico atualizado com sucesso!</p>
