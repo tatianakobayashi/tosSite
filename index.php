@@ -121,9 +121,9 @@
                     
                     <!-- Lista de urls dos termos analisados -->
                     <?php if (count($value->documents) > 0){ ?>
-                    <h5 class="card-title"><a data-toggle="collapse" data-target="#<?=$no_space_service_name?>linkList" aria-expanded="false" aria-controls="<?=$no_space_service_name?>linkList" role="button">Links</a></h5>
+                    <h5 class="card-title"><a data-toggle="collapse" data-target="#link<?=$no_space_service_name?>List" aria-expanded="false" aria-controls="link<?=$no_space_service_name?>List" role="button">Links</a></h5>
                     <?php }?>
-                    <ul class="list-group list-group-flush collapse" id="<?=$no_space_service_name?>linkList">
+                    <ul class="list-group list-group-flush collapse" id="link<?=$no_space_service_name?>List">
                       <?php 
                       foreach ($value->documents as $doc_key => $doc_value) {
                       ?>
