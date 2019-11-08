@@ -20,6 +20,7 @@ require_once("issue-database.php"); ?>
                 $issues = getAllIssues($connection);
                 foreach($issues as $issue) :
             ?>
+            <tr>
 
             <td><?= $issue->getSiteName() ?></td>
             <td><?= $issue->getTosUrl() ?></td>
@@ -33,7 +34,7 @@ require_once("issue-database.php"); ?>
                     <button class="btn btn-danger" action="submit">Editar</button>
                 </form>
             </td>
-
+            </tr>
             <?php
                 endforeach
             ?>
