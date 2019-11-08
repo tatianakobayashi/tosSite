@@ -101,7 +101,7 @@
                         <div class="card-header" id="heading<?=$point_value->id?>">
                           <h2 class="mb-0">
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse<?=$point_value->id?>" aria-expanded="true" aria-controls="collapse<?=$point_value->id?>">
-                              <!-- <?= //isset($translation[$point_value->title])?$translation[$point_value->title]:$point_value->title?> -->
+                              <!-- ?= //isset($translation[$point_value->title])?$translation[$point_value->title]:$point_value->title?> -->
                               <?= $point_value->title?>
                             </button>
                           </h2>
@@ -109,7 +109,7 @@
 
                         <div id="collapse<?=$point_value->id?>" class="collapse" aria-labelledby="heading<?=$point_value->id?>" data-parent="#point<?=$no_space_service_name?>ListAccordion">
                           <div class="card-body">
-                            <!-- <?= //isset($translation[$point_value->description])?$translation[$point_value->description]:$point_value->description?> <br /> -->
+                            <!-- ?= //isset($translation[$point_value->description])?$translation[$point_value->description]:$point_value->description?> <br /> -->
                             <?= $point_value->description?> <br />
                             <strong><?= $point_translation[$score]?></strong><br />
                             <strong>Importância: </strong> <?= $point_value->score ?><br />
