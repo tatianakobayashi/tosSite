@@ -5,8 +5,8 @@
 <?php 
 require_once("navbar.php"); 
 require_once("Models/Topic.php");
-require_once("connect.php");
-require_once("topic-database.php"); 
+require_once("Database/connect.php");
+require_once("Database/topic-database.php"); 
 
 $topic = new Topic($_POST["english"], $_POST["translation"]);
 $success = alterTopic($topic);

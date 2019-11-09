@@ -3,8 +3,8 @@
 </head>
 <body>
 	<?php
-    require_once("connect.php");
-	require_once("issue-database.php");
+    require_once("Database/connect.php");
+	require_once("Database/issue-database.php");
 	$action = 'new';
 	if( isset($_POST['action']) )
 	{

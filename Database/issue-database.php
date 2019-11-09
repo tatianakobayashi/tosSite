@@ -21,8 +21,8 @@ function getAllIssues($connection) {
 
 function alterIssue($connection, $issue) {
 	$edits = $issue->getEdits() + 1;
-    $query = "update issues set site = '{$issue->getSiteName() }', url = '{$issue->getTosUrl() }', topic = '{$issue->getTopic() }',
-        quote= '{$issue->getQuote() }', edits = {$edits} where id = {$issue->getId() }";
+    $query = "update issues set site = '{$issue->getSiteName()}', url = '{$issue->getTosUrl()}', topic = '{$issue->getTopic()}',
+        quote = '{$issue->getQuote()}', edits = {$edits} where id = {$issue->getId()}";
     return mysqli_query($connection, $query);
 }
 

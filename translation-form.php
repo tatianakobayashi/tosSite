@@ -3,7 +3,7 @@
 </head>
 <body>
     <?php
-    require_once("topic-database.php");
+    require_once("Database/topic-database.php");
     
     $action = 'new';
     if( isset($_POST['action']) ){
