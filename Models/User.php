@@ -7,11 +7,13 @@ class User{
 	private $email;
 	private $name;
 	private $password;
+	private $experience;
 
-	function __construct($email, $password, $name){
+	function __construct($name, $email, $experience, $password){
 		$this->email = $email;
         $this->password = $password;
-        $this->name = $name;
+		$this->name = $name;
+		$this->experience = $experience;
 	}
 
 	public function getPassword()
@@ -39,5 +41,14 @@ class User{
 	public function setName($name)
 	{
 		$this->name = $name;
+	}	  
+
+	public function getExperience()
+	{
+		return $this->experience;
+	}
+	public function setExperience($experience)
+	{
+		$this->experience = $experience;
 	}	
 }
