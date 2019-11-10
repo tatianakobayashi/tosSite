@@ -6,8 +6,8 @@
 	<?php require_once("navbar.php"); ?>
 
     <div>
-        <span><strong>Tópico original:</strong> </span>
-        <span><strong>Tradução:</strong> </span>
+        <p><span><strong>Tópico original:</strong> </span></p>
+        <p><span><strong>Tradução:</strong> </span></p>
         <form>
             <button type="submit" class="btn btn-primary">Editar</button>
         </form>

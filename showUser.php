@@ -6,8 +6,8 @@
 	<?php require_once("navbar.php"); ?>
 
     <div>
-        <span><strong>Nome:</strong> </span>
-        <span><strong>Email:</strong> </span>
+        <p><span><strong>Nome:</strong> </span></p>
+        <p><span><strong>Email:</strong> </span></p>
         <form>
             <button type="submit" class="btn btn-primary">Mudar Senha</button>
         </form>

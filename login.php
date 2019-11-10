@@ -3,6 +3,7 @@
 </head>
 
 <body>
+<?php include_once('navbar.php');?>
     <form>
         <div class="form-group">
             <label for="email">Usuário</label>

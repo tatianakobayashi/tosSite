@@ -6,9 +6,9 @@
 	<?php require_once("navbar.php"); ?>
 
     <div>
-        <span><strong>Título:</strong> </span>
-        <span><strong>Conteúdo:</strong> </span>
-        <span><strong>Usuário:</strong> </span>
+        <p><span><strong>Título:</strong> </span></p>
+        <p><span><strong>Conteúdo:</strong> </span></p>
+        <p><span><strong>Usuário:</strong> </span></p>
         <form>
             <button type="submit" class="btn btn-primary">Editar</button>
         </form>
