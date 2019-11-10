@@ -1,6 +1,6 @@
 <!-- navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#home">Termos de Uso</a>
+    <a class="navbar-brand" href="index.php">Termos de Uso</a>
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
