@@ -48,8 +48,14 @@ function getUserById($connection, $id) {
     $query = "select * from users where id = {$id}";
     $result = mysqli_query($connection, $query);
     $arr = mysqli_fetch_assoc($result);
-    $password = 
-    $user = new User($arr["name"], $arr["email"], $arr["experience"], $arr["quote"], $arr["edits"]);
+    $user = new User($arr["name"], $arr["email"], $arr["experience"], $arr["quote"], '');
     $user->setId($arr["id"]);
     return $user;
+}
+
+function getUserNameById($connection, $id) {
+    $query = "select name from users where id = {$id}";
+    $result = mysqli_query($connection, $query);
+    $arr = mysqli_fetch_assoc($result);
+    return $arr["name"];
 }
