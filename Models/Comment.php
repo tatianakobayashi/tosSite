@@ -6,13 +6,15 @@ class Comment{
     private $text;
     private $importance;
     private $classification; // bom, neutro ou ruim
+    private $topicId;
     private $userId;
 
-    function __construct($title, $text, $importance, $classification, $userId){
+    function __construct($title, $text, $importance, $classification, $userId, $topicId){
         $this->title = $title;
         $this->text = $text;
         $this->importance = $importance;
         $this->classification = $classification;
+	$this->topicId = $topicId;
         $this->userId = $userId;
     }
 
@@ -56,7 +58,7 @@ class Comment{
 	{
 		return $this->userId;
 	}
-	public function setUseruserId($userId)
+	public function setUserId($userId)
 	{
 		$this->userId = $userId;
 	}
@@ -68,5 +70,14 @@ class Comment{
 	public function setClassification($classification)
 	{
 		$this->classification = $classification;
+	}
+	
+	public function getTopicId()
+	{
+		return $this->topicId;
+	}
+	public function setTopicId($topicId)
+	{
+		$this->topicId = $topicId;
 	}
 }
