@@ -12,3 +12,4 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     
     <link rel="stylesheet" href="css/basic.css">
+    <?php session_start();?>
