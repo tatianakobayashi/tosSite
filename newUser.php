@@ -3,7 +3,7 @@
 </head>
 <body>
 	<?php require_once("navbar.php"); ?> 
-    <form method="POST" action="index.php">
+    <form method="POST" action="showUser.php">
         <div class="form-group">
             <label for="name">Nome</label>
             <input type="text" name="name" class="form-control"/>
