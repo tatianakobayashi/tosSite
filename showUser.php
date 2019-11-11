@@ -55,7 +55,7 @@
     </div>
     <div hidden=<?=isset($user)?false:true?>>
         <form action="editUser.php" action="POST">
-            <input type="hidden" value="<?=isset($user)?user->getId():''?>">
+            <input type="hidden" value="<?=isset($user)?$user->getId():''?>">
             <button type="submit" class="btn btn-primary">Editar</button>
         </form>
     </div>
