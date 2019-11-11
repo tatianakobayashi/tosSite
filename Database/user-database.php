@@ -16,7 +16,7 @@ function getUser($connection, $email, $password) {
     return $user;
 }
 
-public function insertUser($connection, $name, $email, $experience, $password1, $password2)
+function insertUser($connection, $name, $email, $experience, $password1, $password2)
 {
     if($password1 != $password2) return false;
 
