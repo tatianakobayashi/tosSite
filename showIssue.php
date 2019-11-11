@@ -39,7 +39,7 @@ $issue = getIssueById($connection, $_POST["issueId"]);
       $userName = getUserNameById($connection, $comment->getUserId());
     ?>
       <div class="card">
-          <p><span class="user-comment"><strong>Usuário:</strong><?=$userName?></span></p>
+          <h4><span><strong>Usuário:</strong><?=$userName?></span></h4>
           <p><span><strong>Título:</strong><?=$comment->getTitle()?></span></p>
           <p><span><strong>Conteúdo:</strong><?=$comment->getText()?></span></p>
           <p><span><strong>Importância:</strong><?=$comment->getImportance()?></span></p>
