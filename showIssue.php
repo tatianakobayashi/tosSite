@@ -29,6 +29,23 @@ $issue = getIssueById($connection, $_POST["issueId"]);
     </form>
   </div>
 
-  <?php // Show comments ?>
+  <?php // Show comments 
+  $comments = getCommentsByTopic($connection, $issue->getId());
+  if(isset($comments)){
+  ?>
+    <hr>
+    <h3>Comentários</h3>
+    <?php foreach ($comments as $comment) { 
+      $userName = getUserNameById($connection, $comment->getUserId());
+    ?>
+      <div class="card">
+          <p><span class="user-comment"><strong>Usuário:</strong><?=$userName?></span></p>
+          <p><span><strong>Título:</strong><?=$comment->getTitle()?></span></p>
+          <p><span><strong>Conteúdo:</strong><?=$comment->getText()?></span></p>
+          <p><span><strong>Importância:</strong><?=$comment->getImportance()?></span></p>
+          <p><span><strong>Classificação:</strong><?=$comment->getClassification()?></span></p>
+      </div>
+    <?php ?>
+  <?php } // end if?>
 </body>
 </html>
