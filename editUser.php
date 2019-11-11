@@ -1,5 +1,5 @@
 <?php require_once("header.php"); ?>
-	<title>Formulário</title>
+	<title>Editar Usuário</title>
 </head>
 <body>
 	<?php
