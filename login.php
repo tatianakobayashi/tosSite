@@ -4,7 +4,7 @@
 
 <body>
 <?php include_once('navbar.php');?>
-    <form>
+    <form method="POST" action="index.php">
         <div class="form-group">
             <label for="email">Usuário</label>
             <input type="email" name="email" class="form-control" hint="Email" />
