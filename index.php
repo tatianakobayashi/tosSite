@@ -2,7 +2,13 @@
 <title>Termos de Uso</title>
 </head>
 <body>
-<?php require_once("navbar.php"); ?> 
+<?php require_once("navbar.php"); 
+  
+  if(isset($_POST["email"]) && isset($_POST["password"])){
+    require_once("login-alert.php");
+  }
+  
+  ?> 
 
   <!-- Cabeçalho -->
   <div class="header" id="home">
