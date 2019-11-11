@@ -1,9 +1,9 @@
 <?php
 require_once('Models/User.php');
 
-function getUser($connection, $user) {
-    $password = password_hash($user->getPassword(), PASSWORD_DEFAULT);
-    $email = mysqli_real_escape_string($connection, $user->getEmail());
+function getUser($connection, $email, $password) {
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $email = mysqli_real_escape_string($connection, $email);
 
     $query = "select * from users where email='{$email}' and password='{$password}'";
     
@@ -26,7 +26,7 @@ public function insertUser($connection, $name, $email, $experience, $password1, 
     return mysqli_query($connection, $query);
 }
 
-function alterUser($connection, $id, $name, $email, $oldPassword, $password1, $password2) {
+function alterUser($connection, $id, $name, $email, $experience, $oldPassword, $password1, $password2) {
     
     $user = getUserById($connection, $id);
 
