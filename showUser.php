@@ -7,6 +7,8 @@
     require_once("navbar.php"); 
     require_once("Database/connect.php");
     require_once("Database/user-database.php");
+	
+    
     
     if(isset($_POST)){
         $success = alterUser($connection, $_POST["id"], $_POST["name"], $_POST["email"], $_POST["experience"], $_POST["oldPassword"], $_POST["password1"], $_POST["password2"]);
@@ -21,6 +23,10 @@
             <p class="alert alert-danger">O usuário não foi alterado: <?= $msg ?></p>
     <?php
         }
+    }
+	
+    if(!isset($user) && isset($_SESSION["userId"])){
+    	$user = getUserById($connection, $_SESSION["userId"]);
     }
     ?>
 
