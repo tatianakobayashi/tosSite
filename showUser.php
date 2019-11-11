@@ -36,6 +36,12 @@
         <p><span><strong>Experiência: </strong><?=isset($user)?$user->getExperience():''?> </span></p>
 
     </div>
+	<div hidden=<?=isset($user)?false:true?>>
+		<form action="editUser.php" action="POST">
+			<input type="hidden" value="<?=isset($user)?user->getId():''?>">
+			<button type="submit" class="btn btn-primary">Editar</button>
+		</form>
+	</div>
 
 </body>
 </html>
