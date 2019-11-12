@@ -2,22 +2,15 @@
 require_once('Models/User.php');
 
 function getUser($connection, $email, $password) {
-    echo $email;
-    echo $password;
-
-    $password = password_hash($password, PASSWORD_DEFAULT);
-    $email = mysqli_real_escape_string($connection, $email);
-
-    echo $email;
-    echo $password;
-
-    $query = "select * from users where email='{$email}' and password='{$password}'";
-    
+    $query = "select * from users where email='{$email}'";
+   
     $resultado = mysqli_query($connection, $query);
     $arr = mysqli_fetch_assoc($resultado);
 
+    if(!password_verify ($password, $arr["password"])) return false;
+
     $user = null;
-    $user = new User($arr["name"], $arr["email"], $arr["experience"], $arr["quote"], $arr["edits"]);
+    $user = new User($arr["name"], $arr["email"], $arr["experience"], '');
     $user->setId($arr["id"]);
     return $user;
 }

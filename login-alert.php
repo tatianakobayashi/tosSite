@@ -10,11 +10,6 @@
 ?>
         <p class="alert alert-success">Login realizado com sucesso!</p>
 <?php
-        echo '<pre>'; print_r($_SESSION); echo '</pre>';
-        echo $user->getId();
-        echo $user->getName();
-        echo $_POST["email"];
-        echo  $_POST["password"];
     } else {
         $msg = mysqli_error($connection);
 ?>
