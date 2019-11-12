@@ -6,27 +6,33 @@ require_once("Database/issue-database.php");
 
 $issue = getIssueById($connection, $_POST["issueId"]);
 ?>
-  <title><?=$issue->getTopic()?></title>
+  <title><?php echo $issue->getSiteName();?> - <?=$issue->getTopic()?></title>
 </head>
 <body>
 <?php require_once("navbar.php"); ?>
-  <h2> <?php echo $issue->getTopic();?></h2> <br>
+  <p><h2> <?php echo $issue->getTopic();?></h2></p>
   <div>
-    <strong>Site: </strong> <span> <?php echo $issue->getSiteName();?></span> <br>
-    <strong>Url: </strong> <span> <?php echo $issue->getTosUrl();?></span> <br>
-    <strong>Citação: </strong> <span> <?php echo $issue->getQuote();?></span> <br>
+    <p><h3> <?php echo $issue->getSiteName();?></h3></p>
+    <p><strong>Url: </strong> <span> <?php echo $issue->getTosUrl();?></span></p>
+    <p><strong>Citação: </strong> <span> <?php echo $issue->getQuote();?></span></p>
 
-    <form action="form.php" method="post">
-      <input type="hidden" name="id" value="<?=$issue->getId()?>" />
-      <input type="hidden" name="action" value="edit" />
-      <button class="btn btn-danger" action="submit">Editar</button>
-    </form>
+    <div class="btn-toolbar" role="toolbar">
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <form action="form.php" method="post">
+          <input type="hidden" name="id" value="<?=$issue->getId()?>" />
+          <input type="hidden" name="action" value="edit" />
+          <button class="btn btn-secondary" action="submit">Editar</button>
+        </form>
+      </div>
 
-    <form action="newComment.php" method="post">
-      <input type="hidden" name="id" value="<?=$issue->getId()?>" />
-      <input type="hidden" name="action" value="edit" />
-      <button class="btn btn-danger" action="submit">Comentar</button>
-    </form>
+      <div class="btn-group mr-2" role="group" aria-label="First group">
+        <form action="newComment.php" method="post">
+          <input type="hidden" name="id" value="<?=$issue->getId()?>" />
+          <input type="hidden" name="action" value="edit" />
+          <button class="btn btn-primary" action="submit">Comentar</button>
+        </form>
+      </div>
+    </div>
   </div>
 
   <?php // Show comments 
@@ -45,7 +51,12 @@ $issue = getIssueById($connection, $_POST["issueId"]);
           <p><span><strong>Importância:</strong><?=$comment->getImportance()?></span></p>
           <p><span><strong>Classificação:</strong><?=$comment->getClassification()?></span></p>
       </div>
-    <?php ?>
-  <?php } // end if?>
+  <?php 
+    } // end for
+  }// end if
+  else{
+    echo "<p>Não existem comentários para este tópico</p>";
+  }
+  ?>
 </body>
 </html>
