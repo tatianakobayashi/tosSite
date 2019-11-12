@@ -44,11 +44,13 @@ $issue = getIssueById($connection, $_POST["issueId"]);
       $userName = getUserNameById($connection, $comment->getUserId());
     ?>
       <div class="card">
-          <h4><span><strong>Usuário:</strong><?=$userName?></span></h4>
-          <p><span><strong>Título:</strong><?=$comment->getTitle()?></span></p>
-          <p><span><strong>Conteúdo:</strong><?=$comment->getText()?></span></p>
+        <div class="card-body">
+          <h4 class="card-title"><span><strong>Título:</strong><?=$comment->getTitle()?></span></h4>
+          <h5 class="card-subtitle"><span><strong>Usuário:</strong><?=$userName?></span></h5>
+          <p class="card-text"><span><strong>Conteúdo:</strong><?=$comment->getText()?></span></p>
           <p><span><strong>Importância:</strong><?=$comment->getImportance()?></span></p>
           <p><span><strong>Classificação:</strong><?=$comment->getClassification()?></span></p>
+        </div>
       </div>
   <?php 
     } // end for
