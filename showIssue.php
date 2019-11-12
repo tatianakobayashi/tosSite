@@ -28,7 +28,6 @@ $issue = getIssueById($connection, $_POST["issueId"]);
       <div class="btn-group mr-2" role="group" aria-label="First group">
         <form action="newComment.php" method="post">
           <input type="hidden" name="id" value="<?=$issue->getId()?>" />
-          <input type="hidden" name="action" value="edit" />
           <button class="btn btn-primary" action="submit">Comentar</button>
         </form>
       </div>
