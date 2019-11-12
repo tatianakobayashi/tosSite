@@ -1,7 +1,7 @@
 
 <?php
-session_destroy();
 include_once('header.php');
+session_unset();
 ?>
 <title>Logout</title>
 </head>
