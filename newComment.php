@@ -28,7 +28,7 @@
             </select>
         </div>
 
-        <input type="hidden" name="topicId" value="<?php=$_POST["topicId"]?>">
+        <input type="hidden" name="topicId" value="<?=$_POST["topicId"]?>">
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
 </body>
