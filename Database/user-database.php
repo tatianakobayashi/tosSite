@@ -2,8 +2,14 @@
 require_once('Models/User.php');
 
 function getUser($connection, $email, $password) {
+    echo $email;
+    echo $password;
+
     $password = password_hash($password, PASSWORD_DEFAULT);
     $email = mysqli_real_escape_string($connection, $email);
+
+    echo $email;
+    echo $password;
 
     $query = "select * from users where email='{$email}' and password='{$password}'";
     
