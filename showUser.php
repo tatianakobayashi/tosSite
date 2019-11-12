@@ -25,8 +25,7 @@
         }
     }
 
-    if(isset($_POST)){
-        echo  $_POST["name"].' '. $_POST["email"].' '. $_POST["experience"].' '. $_POST["password1"].' '. $_POST["password2"];
+    if(isset($_POST["password1"]) && isset($_POST["password2"])){
         $success = insertUser($connection, $_POST["name"], $_POST["email"], $_POST["experience"], $_POST["password1"], $_POST["password2"]);
         if($success) {
             $user = getUser($connection, $_POST["email"], $_POST["password1"]) ;
