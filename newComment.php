@@ -21,7 +21,7 @@
 
         <div class="form-group">
             <label for="classification">Classificação</label>
-            <select class="form-control" id="classification">
+            <select class="form-control" name="classification">
                 <option value="bom">bom</option>
                 <option value="neutro">neutro</option>
                 <option value="ruim">ruim</option>

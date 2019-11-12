@@ -16,7 +16,7 @@
 
         <div class="form-group">
             <label for="experience">Experiência</label>
-            <select class="form-control" id="experience">
+            <select class="form-control" name="experience">
                 <option value="Leigo">Leigo</option>
                 <option value="Intermediário">Intermediário</option>
                 <option value="Profissional">Profissional</option>
