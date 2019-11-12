@@ -1,6 +1,5 @@
 
 <?php
-session_unset();
 session_destroy();
 include_once('header.php');
 ?>
