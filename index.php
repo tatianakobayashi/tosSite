@@ -38,13 +38,13 @@
 
   <div class="tab-content" id="indexTabContent">
     <div class="tab-pane fade show active" id="services" role="tabpanel" aria-labelledby="servicesListTab">
-      <h3>Classificação dos sites</h3>
+      <p><h3>Classificação dos sites</h3></p>
       <div class="card-columns">
         <?php include_once('service-list-tosdr.php'); ?>
       </div>
     </div>
     <div class="tab-pane fade" id="topics" role="tabpanel" aria-labelledby="topics-tab">
-      <h3>Topicos do ToS;DR</h3>
+      <p><h3>Topicos do ToS;DR</h3></p>
       <div class="list">
         Tópicos criados pelo TOS;DR..............
       </div>
