@@ -7,7 +7,7 @@
     if(isset($user)) {
         // $_SESSION["userId"] = $user->getId();
         // $_SESSION["userName"] = $user->getName();
-      echo $user->getId();
+      echo '{"userId":'.$user->getId().',"userName":"'.$user->getName().'"}';
     } else {
       echo mysqli_error($connection);
     }
