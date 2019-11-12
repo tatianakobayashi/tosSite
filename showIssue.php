@@ -1,6 +1,7 @@
 <?php require_once("header.php"); 
 
 require_once("Models/Issue.php");
+require_once("Models/Comment.php");
 require_once("Database/connect.php");
 require_once("Database/issue-database.php"); 
 
