@@ -45,6 +45,12 @@
     if(!isset($user) && isset($_SESSION["userId"])){
         $user = getUserById($connection, $_SESSION["userId"]);
     }
+
+    if(!isset($_SESSION["userId"])){
+        ?>
+        <p class="alert alert-danger">Você não está logado</p>
+        <?php
+    }
     ?>
 
     <div>
