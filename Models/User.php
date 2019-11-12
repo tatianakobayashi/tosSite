@@ -4,6 +4,7 @@
  *  
  */
 class User{
+	private $id;
 	private $email;
 	private $name;
 	private $password;
@@ -50,5 +51,14 @@ class User{
 	public function setExperience($experience)
 	{
 		$this->experience = $experience;
+	}	  
+
+	public function getId()
+	{
+		return $this->id;
+	}
+	public function setId($id)
+	{
+		$this->id = $id;
 	}	
 }
