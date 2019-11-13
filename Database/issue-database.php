@@ -54,7 +54,17 @@ function getIssueBySite($connection, $site) {
     $query = "select * from issues where site = {$site}";
     $result = mysqli_query($connection, $query);
     $arr = mysqli_fetch_assoc($result);
-    $issue = new Issue($arr["siteName"], $arr["termUrl"], $arr["topic"], $arr["quote"], $arr["edits"]);
+    $issue = new Issue($arr["site"], $arr["url"], $arr["topic"], $arr["quote"], $arr["edits"]);
     $issue->setId($arr["id"]);
     return $issue;
+}
+
+function getAllUrlsBySite($connection, $site){
+    $query = "select distinct url from issues where site = {$site}";
+    $result = mysqli_query($connection, $query);
+    $all = array();
+    while($arr = mysqli_fetch_assoc($result)) {
+        array_push($all, $arr["site"]);
+    }
+    return $arr;
 }
