@@ -50,13 +50,16 @@ function getAllServices($connection){
     return $arr;
 }
 
-function getIssueBySite($connection, $site) {
+function getIssuesBySite($connection, $site) {
     $query = "select * from issues where site = {$site}";
     $result = mysqli_query($connection, $query);
-    $arr = mysqli_fetch_assoc($result);
-    $issue = new Issue($arr["site"], $arr["url"], $arr["topic"], $arr["quote"], $arr["edits"]);
-    $issue->setId($arr["id"]);
-    return $issue;
+	$issues = array();
+    while($arr = mysqli_fetch_assoc($result)) {
+	    $issue = new Issue($arr["site"], $arr["url"], $arr["topic"], $arr["quote"], $arr["edits"]);
+	    $issue->setId($arr["id"]);
+	    array_push($issues, $issue);
+    }
+    return $issues;
 }
 
 function getAllUrlsBySite($connection, $site){
