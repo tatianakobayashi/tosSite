@@ -14,6 +14,7 @@ else{
     echo $pref;
   }
   else{
-    echo mysqli_error($connection);
+    $size = readfile("defaultPreferences.json");
+    // echo mysqli_error($connection);
   }
 }
