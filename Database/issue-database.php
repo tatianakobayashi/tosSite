@@ -64,7 +64,7 @@ function getAllUrlsBySite($connection, $site){
     $result = mysqli_query($connection, $query);
     $all = array();
     while($arr = mysqli_fetch_assoc($result)) {
-        array_push($all, $arr["site"]);
+        array_push($all, $arr["url"]);
     }
     return $arr;
 }
