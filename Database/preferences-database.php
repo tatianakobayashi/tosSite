@@ -6,7 +6,7 @@ function insertPreferences($connection, $userId, $prefJSON) {
     return mysqli_query($connection, $query);
 }
 
-function alterPreferences($connection, $userId, $prefJSON)) {
+function alterPreferences($connection, $userId, $prefJSON) {
     $query = "update preferences set preferencesJSON = '{$prefJSON}' where userId = {$userId}";
     return mysqli_query($connection, $query);
 }

@@ -2,7 +2,7 @@
   require_once("Database/connect.php");
   require_once("Database/preferences-database.php");
   header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type");
+  header("Access-Control-Allow-Headers: Content-Type");
 
 if(!isset($_GET["userId"])){
   $size = readfile("defaultPreferences.json");
