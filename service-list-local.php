@@ -1,61 +1,56 @@
 <?php
 // get services + issues
-$services = getAllServices($connection)
-// list services w/ topics underneath
-foreach ($services as $service){
-// topics lead to showIssue.php
-$issues = getIssueBySite($connection, $service);
-?>
-<div class="card" style="display: inline-block;" id="<?=$no_space_service_name?><?=$service_id?>">
-    <div class="card-body">
-    <!-- Nome do serviço e Classificação -->
-    <h5 class="card-title"> <?= $value->name?> </h5>
-    <p class="card-text <?=$rating_color_class[$value->rated]?>"> <?= $rating_to_string[$value->rated]?> </p>
 
-    <h5 class="card-title"><a data-toggle="collapse" data-target="#point<?=$no_space_service_name?>ListAccordion" aria-expanded="false" aria-controls="point<?=$no_space_service_name?>ListAccordion" role="button">Tópicos</a></h5>
-    <div class="accordion collapse" id="point<?=$no_space_service_name?>ListAccordion">
-    <?php 
-    foreach ($issues as $issue) {
-        $score = $point_value->point;
-    ?>
-        
-        <div class="card <?=$point_alert[$score]?>">
-        <div class="card-header" id="heading<?=$point_value->id?>">
+include_once('Database/connect.php');
+include_once('Database/issues-database.php');
+$services = getAllServices($connection);
+
+// list services w/ topics underneath
+foreach($services as $service){
+  $issues = getIssuesBySite($connection, $service);
+  ?>
+  <div class="card" id="local<?=$service?>">
+  <div class="card-body">
+    <h5 class="card-title"> <?= $service?> </h5>
+    <h5 class="card-title"><a data-toggle="collapse" data-target="#local<?=$service?>ListAccordion" aria-expanded="false" aria-controls="local<?=$service?>ListAccordion" role="button">Tópicos</a></h5>
+    <div class="accordion collapse" id="local<?=$service?>ListAccordion">
+  <?php
+      foreach($issues as $issue){
+        ?>
+        <div class="card-header" id="headingLocal<?=$issue->getId()?>">
             <h2 class="mb-0">
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse<?=$point_value->id?>" aria-expanded="true" aria-controls="collapse<?=$point_value->id?>">
-                <!-- ?= //isset($translation[$point_value->title])?$translation[$point_value->title]:$point_value->title?> -->
-                <?= $point_value->title?>
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseLocal<?=$issue->getId()?>" aria-expanded="true" aria-controls="collapseLocal<?=$issue->getId()?>">
+                <?= $issue->getTopic()?>
             </button>
             </h2>
         </div>
 
-        <div id="collapse<?=$point_value->id?>" class="collapse" aria-labelledby="heading<?=$point_value->id?>" data-parent="#point<?=$no_space_service_name?>ListAccordion">
+        <div id="collapseLocal<?=$issue->getId()?>" class="collapse" aria-labelledby="headingLocal<?=$issue->getId()?>" data-parent="#local<?=$service?>ListAccordion">
             <div class="card-body">
-            <!-- ?= //isset($translation[$point_value->description])?$translation[$point_value->description]:$point_value->description?> <br /> -->
-            <?= $point_value->description?> <br />
-            <strong><?= $point_translation[$score]?></strong><br />
-            <strong>Importância: </strong> <?= $point_value->score ?><br />
-            <a href="<?= $point_value->discussion?>">Discussão</a><br />
+            <?= $issue->getQuote()?> <br />
+            <a href="/showIssue.php?issueId=<?=$issue->getId()?>">Discussão</a><br />
             </div>
         </div>
-        </div>
-
-    <?php } // end foreach points ?>
+        <?php
+      }
+  ?>
     </div>
-    
-    <!-- Lista de urls dos termos analisados -->
-    <?php if (count($value->documents) > 0){ ?>
-    <h5 class="card-title"><a data-toggle="collapse" data-target="#link<?=$no_space_service_name?>List" aria-expanded="false" aria-controls="link<?=$no_space_service_name?>List" role="button">Links</a></h5>
-    <?php }?>
-    <ul class="list-group list-group-flush collapse" id="link<?=$no_space_service_name?>List">
-        <?php 
-        foreach ($value->documents as $doc_key => $doc_value) {
+  <?php
+    $urls = getAllUrlsBySite($connection, $service);
+  ?>
+    <h5 class="card-title"><a data-toggle="collapse" data-target="#localLink<?=$service?>List" aria-expanded="false" aria-controls="localLink<?=$service?>List" role="button">Links</a></h5>
+    <ul class="list-group list-group-flush collapse" id="localLink<?=$service?>List">
+  <?php
+      foreach($urls as $url){
         ?>
-        <li class="list-group-item"><a href="<?=$doc_value->url?>"><?=$doc_value->name?></a></li>
-        <?php } // end foreach documents ?>
+        <li class="list-group-item"><a href="<?=$url?>"><?=$url?></a></li>
+        <?php
+      }
+  ?>
     </ul>
-    </div>
-</div>
-<?php
+  </div>
+  </div>
+  <hr>
+  <?php
 }
 ?>
