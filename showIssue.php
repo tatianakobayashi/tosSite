@@ -5,7 +5,7 @@ require_once("Models/Comment.php");
 require_once("Database/connect.php");
 require_once("Database/issue-database.php"); 
 
-$issue = getIssueById($connection, $_POST["issueId"]);
+$issue = getIssueById($connection, $_GET["issueId"]);
 ?>
   <title><?php echo $issue->getSiteName();?> - <?=$issue->getTopic()?></title>
 </head>

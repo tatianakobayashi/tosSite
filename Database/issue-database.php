@@ -40,6 +40,16 @@ function getIssueById($connection, $id) {
     return $issue;
 }
 
+function getAllServices($connection){
+    $query = "select distinct site from issues";
+    $result = mysqli_query($connection, $query);
+    $all = array();
+    while($arr = mysqli_fetch_assoc($result)) {
+        array_push($all, $arr["site"]);
+    }
+    return $arr;
+}
+
 function getIssueBySite($connection, $site) {
     $query = "select * from issues where site = {$site}";
     $result = mysqli_query($connection, $query);
