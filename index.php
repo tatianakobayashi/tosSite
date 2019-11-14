@@ -23,18 +23,8 @@
   <!-- Cabeçalho -->
   <div class="header" id="home">
     <h1>Termos de Uso</h1>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    
+    Informações sobre a classificação retiradas da API da organização TOS;DR.
   </div>
 
   <ul class="nav nav-tabs" id="indexTabs" role="tablist">
@@ -54,9 +44,9 @@
       </div>
     </div>
     <div class="tab-pane fade" id="topics" role="tabpanel" aria-labelledby="topics-tab">
-      <p><h3>Topicos do ToS;DR</h3></p>
+      <p><h3>Topicos Locais</h3></p>
       <div class="list">
-        Tópicos criados pelo TOS;DR..............
+        <?php include_once('service-list-local.php'); ?>
       </div>
     </div>
   </div>
