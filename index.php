@@ -11,7 +11,7 @@
   if(isset($user)) {
       $_SESSION["userId"] = $user->getId();
       $_SESSION["userName"] = $user->getName();
-
+  }
  require_once("navbar.php"); 
   
   if(isset($_POST["email"]) && isset($_POST["password"])){
