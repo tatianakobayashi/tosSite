@@ -4,6 +4,8 @@ require_once("Models/Issue.php");
 require_once("Models/Comment.php");
 require_once("Database/connect.php");
 require_once("Database/issue-database.php"); 
+require_once("Database/comment-database.php"); 
+require_once("Database/user-database.php"); 
 
 $issue = getIssueById($connection, $_GET["issueId"]);
 ?>
@@ -11,11 +13,11 @@ $issue = getIssueById($connection, $_GET["issueId"]);
 </head>
 <body>
 <?php require_once("navbar.php"); ?>
-  <p><h2> <?php echo $issue->getTopic();?></h2></p>
+  <p><h2> <?php echo $issue->getQuote();?> </h2></p>
   <div>
     <p><h3> <?php echo $issue->getSiteName();?></h3></p>
     <p><strong>Url: </strong> <span> <?php echo $issue->getTosUrl();?></span></p>
-    <p><strong>Citação: </strong> <span> <?php echo $issue->getQuote();?></span></p>
+    <p> <span> <?php echo $issue->getTopic();?> </span></p>
 
     <div class="btn-toolbar" role="toolbar">
       <div class="btn-group mr-2" role="group" aria-label="First group">
@@ -28,7 +30,7 @@ $issue = getIssueById($connection, $_GET["issueId"]);
 
       <div class="btn-group mr-2" role="group" aria-label="First group">
         <form action="newComment.php" method="post">
-          <input type="hidden" name="id" value="<?=$issue->getId()?>" />
+          <input type="hidden" name="topicId" value="<?=$issue->getId()?>" />
           <button class="btn btn-primary" action="submit">Comentar</button>
         </form>
       </div>
@@ -46,11 +48,11 @@ $issue = getIssueById($connection, $_GET["issueId"]);
     ?>
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title"><span><strong>Título:</strong><?=$comment->getTitle()?></span></h4>
-          <h5 class="card-subtitle"><span><strong>Usuário:</strong><?=$userName?></span></h5>
-          <p class="card-text"><span><strong>Conteúdo:</strong><?=$comment->getText()?></span></p>
-          <p><span><strong>Importância:</strong><?=$comment->getImportance()?></span></p>
-          <p><span><strong>Classificação:</strong><?=$comment->getClassification()?></span></p>
+          <h4 class="card-title"><span><strong><?=$comment->getTitle()?></strong></span></h4>
+          <h5 class="card-subtitle"><span><strong>Usuário: </strong><?=$userName?></span></h5>
+          <p class="card-text"><span><?=$comment->getText()?></span></p>
+          <p><span><strong>Importância: </strong><?=$comment->getImportance()?></span></p>
+          <p><span><strong>Classificação: </strong><?=$comment->getClassification()?></span></p>
         </div>
       </div>
   <?php 

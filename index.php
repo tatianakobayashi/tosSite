@@ -6,7 +6,6 @@
   require_once("Database/connect.php");
   require_once("Database/user-database.php");
 
-  
   if(isset($_POST["email"]) && isset($_POST["password"])) {
     $user = getUser($connection, $_POST["email"], $_POST["password"]);
 
