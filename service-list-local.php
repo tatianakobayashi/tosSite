@@ -2,7 +2,7 @@
 // get services + issues
 
 include_once('Database/connect.php');
-include_once('Database/issues-database.php');
+include_once('Database/issue-database.php');
 $services = getAllServices($connection);
 
 // list services w/ topics underneath

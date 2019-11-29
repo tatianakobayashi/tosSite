@@ -6,13 +6,14 @@
   require_once("Database/connect.php");
   require_once("Database/user-database.php");
 
-  $user = getUser($connection, $_POST["email"], $_POST["password"]);
+  
+  if(isset($_POST["email"]) && isset($_POST["password"])) {
+    $user = getUser($connection, $_POST["email"], $_POST["password"]);
 
-  if(isset($user)) {
-      $_SESSION["userId"] = $user->getId();
-      $_SESSION["userName"] = $user->getName();
+    $_SESSION["userId"] = $user->getId();
+    $_SESSION["userName"] = $user->getName();
   }
- require_once("navbar.php"); 
+  require_once("navbar.php"); 
   
   if(isset($_POST["email"]) && isset($_POST["password"])){
     require_once("login-alert.php");
