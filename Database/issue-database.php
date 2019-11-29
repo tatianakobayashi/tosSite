@@ -47,11 +47,11 @@ function getAllServices($connection){
     while($arr = mysqli_fetch_assoc($result)) {
         array_push($all, $arr["site"]);
     }
-    return $arr;
+    return $all;
 }
 
 function getIssuesBySite($connection, $site) {
-    $query = "select * from issues where site = {$site}";
+    $query = "select * from issues where site = '{$site}'";
     $result = mysqli_query($connection, $query);
 	$issues = array();
     while($arr = mysqli_fetch_assoc($result)) {
@@ -63,11 +63,11 @@ function getIssuesBySite($connection, $site) {
 }
 
 function getAllUrlsBySite($connection, $site){
-    $query = "select distinct url from issues where site = {$site}";
+    $query = "select distinct url from issues where site = '{$site}'";
     $result = mysqli_query($connection, $query);
     $all = array();
     while($arr = mysqli_fetch_assoc($result)) {
         array_push($all, $arr["url"]);
     }
-    return $arr;
+    return $all;
 }

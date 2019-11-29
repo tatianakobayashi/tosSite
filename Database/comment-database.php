@@ -1,7 +1,7 @@
 <?php
 require_once("Models/Comment.php"); // ($title, $text, $importance, $classification, $topicId, $userId)
 function insertComment($connection, $title, $text, $importance, $classification, $topicId, $userId) {
-    $query = "insert into comments (title, text, importance, classification, topicId, userId) values ('{$title}', '{$text}', {$importance}, '{$classification}', '{$topicId}', {$userId})";
+    $query = "insert into comments (title, text, importance, classification, topicId, userId) values ('{$title}', '{$text}', {$importance}, '{$classification}', {$topicId}, {$userId})";
     return mysqli_query($connection, $query);
 }
 

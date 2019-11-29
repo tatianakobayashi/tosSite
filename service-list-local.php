@@ -2,10 +2,11 @@
 // get services + issues
 
 include_once('Database/connect.php');
-include_once('Database/issues-database.php');
+include_once('Database/issue-database.php');
 $services = getAllServices($connection);
 
 // list services w/ topics underneath
+if(is_array($services)){
 foreach($services as $service){
   $issues = getIssuesBySite($connection, $service);
   ?>
@@ -20,15 +21,15 @@ foreach($services as $service){
         <div class="card-header" id="headingLocal<?=$issue->getId()?>">
             <h2 class="mb-0">
             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseLocal<?=$issue->getId()?>" aria-expanded="true" aria-controls="collapseLocal<?=$issue->getId()?>">
-                <?= $issue->getTopic()?>
+                <?= $issue->getQuote()?>
             </button>
             </h2>
         </div>
 
         <div id="collapseLocal<?=$issue->getId()?>" class="collapse" aria-labelledby="headingLocal<?=$issue->getId()?>" data-parent="#local<?=$service?>ListAccordion">
             <div class="card-body">
-            <?= $issue->getQuote()?> <br />
-            <a href="/showIssue.php?issueId=<?=$issue->getId()?>">Discussão</a><br />
+            <?= $issue->getTopic()?> <br />
+            <a href="showIssue.php?issueId=<?=$issue->getId()?>">Discussão</a><br />
             </div>
         </div>
         <?php
@@ -52,5 +53,6 @@ foreach($services as $service){
   </div>
   <hr>
   <?php
-}
+} // Fim for
+} // Fim if
 ?>
