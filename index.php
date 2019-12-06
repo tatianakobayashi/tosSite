@@ -32,19 +32,19 @@
       <a class="nav-link active" id="servicesListTab" data-toggle="tab" href="#services" role="tab" aria-controls="services" aria-selected="true">Classificação dos sites</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="topics-tab" data-toggle="tab" href="#topics" role="tab" aria-controls="topics" aria-selected="false">Topicos do ToS;DR</a>
+      <a class="nav-link" id="topics-tab" data-toggle="tab" href="#topics" role="tab" aria-controls="topics" aria-selected="false">Tópicos Locais</a>
     </li>
   </ul>
 
   <div class="tab-content" id="indexTabContent">
     <div class="tab-pane fade show active" id="services" role="tabpanel" aria-labelledby="servicesListTab">
-      <p><h3>Classificação dos sites</h3></p>
+      <p><h3>Classificação dos sites de acordo com a organização ToS;DR</h3></p>
       <div class="card-columns">
         <?php include_once('service-list-tosdr.php'); ?>
       </div>
     </div>
     <div class="tab-pane fade" id="topics" role="tabpanel" aria-labelledby="topics-tab">
-      <p><h3>Topicos Locais</h3></p>
+      <p><h3>Tópicos Locais</h3></p>
       <div class="list">
         <?php include_once('service-list-local.php'); ?>
       </div>
